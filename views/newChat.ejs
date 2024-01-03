@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newChat</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <header>
+        <div class="head">
+           <h1>whatsApp</h1>
+        </div>
+    </header>
+    <main>
+        <form method="post" action="<% if(sendd===true){%>/whatsapp/update/<%=done._id%><%}else { %>/whatsapp/newChat/send" <% } %>">
+            
+            <label for="from">From</label>
+            <input type="text" name="from" id="from"  placeholder="your name" value="<% if(sendd===true){%><%= done.from %><%} %>">
+            <br>
+            <label for="msg">message</label>
+            <textarea name="msg" id="msg" placeholder="Write here something"><% if(sendd===true){%><%= done.msg %><%} %></textarea>
+            <br>
+            <label for="to">Send to</label>
+            <input type="text" name="to" id="to" placeholder="receiver name" value="<% if(sendd===true){%><%= done.from %><%} %>">
+            <br>
+            <button type="submit">save</button>
+        </form>
+    </main>
+</body>
+</html>

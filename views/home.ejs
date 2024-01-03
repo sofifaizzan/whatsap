@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini whatsApp</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>whatsApp</h1>
+        </div>
+    </header>
+    <main>
+        <div class="new_chat">
+            <form method="get" action="/whatsapp/newChat"><button type="submit">Send chat</button></form>
+        </div>
+        <div class="find_friends">
+            <form action="/whatsapp/findFriends">
+                <button type="submit">find friends</button>
+            </form>
+        </div>
+        <%for (let chat in chats){  %>
+            <div class="chat">
+                <div><b>From</b><i class="from"> <%= chats[chat].from %> </i><u><%= chats[chat].date %></u></div>
+                <p class="msg"><%= chats[chat].msg %></p>
+                <p class="to">to <i><%= chats[chat].to %></i></p>
+                <div class="delete">
+                    <form method="get" action="/whatsapp/delete/<%= chats[chat]._id%>">
+                        <button type="submit">delete</button>
+                    </form>
+                    <form method="post" action="/whatsapp/edit/<%= chats[chat]._id%>">
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+        <%}%>
+    </main>
+
+</body>
+</html>

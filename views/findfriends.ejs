@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find friends</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1>whatsApp</h1>
+        </div>
+    </header>
+    <%for (let friends in done){%>
+        <div class="user">
+            <div class="user_name"><%= done[friends].userName %></div>
+            <div class="email"><%= done[friends].email%></div>
+            <div class="btn"><form method="post" action="/whatsapp/findFriends/add/<%= done[friends]._id %>"><button type="submit">add friend</button></form></div>
+        </div>
+        <hr>
+
+
+        
+        
+        <!-- for (let friend in done[friends]){ -->
+            
+        <%}
+    %>
+</body>
+</html>
